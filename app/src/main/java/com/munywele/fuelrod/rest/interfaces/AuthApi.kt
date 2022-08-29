@@ -1,6 +1,7 @@
 package com.munywele.fuelrod.rest.interfaces
 
 import com.munywele.fuelrod.rest.request.AuthRequest
+import com.munywele.fuelrod.rest.request.RefreshRequest
 import com.munywele.fuelrod.rest.response.AuthResponse
 import com.munywele.fuelrod.rest.response.User
 import retrofit2.Call
@@ -10,4 +11,7 @@ interface AuthApi {
 
     @POST("v1/account/auth")
     fun auth(@Body authRequest: AuthRequest): Call<AuthResponse>
+
+    @POST("v1/account/refresh")
+    fun refreshToken(@Body refreshRequest: RefreshRequest): Call<AuthResponse>
 }

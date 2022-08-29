@@ -85,10 +85,6 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    private fun showToastMessage(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
-    }
-
     private fun showToastMessage(errorString: String) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
