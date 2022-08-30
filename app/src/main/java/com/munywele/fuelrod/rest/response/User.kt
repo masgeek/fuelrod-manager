@@ -17,7 +17,7 @@ data class User(
     @JsonProperty("email")
     val email: String,
     @JsonProperty("messageCost")
-    val messageCost: Float,
+    val messageCost: Double,
     @JsonProperty("enabled")
     val enabled: Boolean,
     @JsonProperty("overdraft")
@@ -30,4 +30,7 @@ data class User(
     val updatedAt: String,
     @JsonProperty("userServices")
     val userServices: Any? = null,
+
+    @JsonProperty("creditInfo")
+    val creditInfo: CreditInfo
 )

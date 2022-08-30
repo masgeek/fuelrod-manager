@@ -75,6 +75,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-jackson:$retrofitVersion"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.7'
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+//    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
 
     implementation 'com.github.mohammadatif:Animatoo:1.0.1'
 

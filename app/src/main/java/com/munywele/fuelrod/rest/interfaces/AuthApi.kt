@@ -3,7 +3,6 @@ package com.munywele.fuelrod.rest.interfaces
 import com.munywele.fuelrod.rest.request.AuthRequest
 import com.munywele.fuelrod.rest.request.RefreshRequest
 import com.munywele.fuelrod.rest.response.AuthResponse
-import com.munywele.fuelrod.rest.response.User
 import retrofit2.Call
 import retrofit2.http.*
 
