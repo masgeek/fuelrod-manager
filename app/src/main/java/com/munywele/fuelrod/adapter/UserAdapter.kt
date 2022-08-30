@@ -61,4 +61,3 @@ class UserAdapter(private val userContentList: List<UserContent>) :
 
     }
 }
-
