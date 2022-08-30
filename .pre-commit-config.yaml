@@ -1,6 +1,6 @@
 repos:
   - repo: 'https://github.com/pre-commit/pre-commit-hooks'
-    rev: v3.4.0
+    rev: v4.3.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
@@ -15,7 +15,7 @@ repos:
 #          - commit-msg
 
   - repo: 'https://github.com/jorisroovers/gitlint'
-    rev: bf0df47
+    rev: v0.17.0
     hooks:
       - id: gitlint
         stages:
