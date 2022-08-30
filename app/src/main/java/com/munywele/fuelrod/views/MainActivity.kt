@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefs: MySharedPrefs
     private lateinit var userApi: UserApi
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var userAdapter: UserAdapter
+    private lateinit var mAdapter: UserAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +34,18 @@ class MainActivity : AppCompatActivity() {
         prefs = MySharedPrefs(this@MainActivity)
         setContentView(binding.root)
 
+        mAdapter = UserAdapter()
         linearLayoutManager = LinearLayoutManager(this@MainActivity)
         binding.usersRecyclerView.layoutManager = linearLayoutManager
+        binding.usersRecyclerView.setHasFixedSize(true)
+        binding.usersRecyclerView.adapter = mAdapter
 
+        binding.swipeContainer.setOnRefreshListener {
+//            binding.shimmerLayout.visibility = View.VISIBLE
+            loadUserList()
+        }
 
-        loadUserList()
+        mAdapter.setOnItemClickListener(UserAdapter.OnItemClickListener { view: View?, obj: UserContent?, position: Int -> })
 
     }
 
@@ -58,9 +65,7 @@ class MainActivity : AppCompatActivity() {
                         val userContentList = mapper.convertValue(
                             respBody.content,
                             object : TypeReference<List<UserContent>>() {})
-
-                        userAdapter = UserAdapter(userContentList)
-                        binding.usersRecyclerView.adapter = userAdapter
+                        mAdapter.setItems(userContentList)
                         showToastMessage("${userContentList?.size} Users loaded")
                     }
                     binding.shimmerLayout.stopShimmer()
@@ -69,11 +74,12 @@ class MainActivity : AppCompatActivity() {
                     val result = ApiErrorUtil.parseError(response)
                     showToastMessage(result)
                 }
-
+                binding.swipeContainer.isRefreshing = false
             }
 
             override fun onFailure(call: Call<Paginated>, t: Throwable) {
                 showToastMessage("Unable to load user list")
+                binding.swipeContainer.isRefreshing = false
             }
 
         })
