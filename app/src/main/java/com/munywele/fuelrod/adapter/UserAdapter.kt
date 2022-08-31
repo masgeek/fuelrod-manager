@@ -8,15 +8,14 @@ import com.munywele.fuelrod.databinding.UserItemRowBinding
 import com.munywele.fuelrod.rest.response.UserContent
 import com.squareup.picasso.Picasso
 
-class UserAdapter :
+class UserAdapter(private val mOnUserClickListener: OnUserClickListener) :
     RecyclerView.Adapter<UserAdapter.UserHolder>() {
 
-    private var mOnItemClickListener: OnItemClickListener? = null
     private var userContentList: List<UserContent> = emptyList()
     private lateinit var mLayoutInflater: LayoutInflater
 
-    interface OnItemClickListener {
-        fun onUserClicked(view: View, userContent: UserContent, position: Int)
+    interface OnUserClickListener {
+        fun onUserClicked(userContent: UserContent, position: Int)
     }
 
     fun setItems(items: List<UserContent>) {
@@ -41,9 +40,6 @@ class UserAdapter :
         return userContentList.size
     }
 
-    fun setOnItemClickListener(mItemClickListener: OnItemClickListener?) {
-        mOnItemClickListener = mItemClickListener
-    }
 
     inner class UserHolder(binding: UserItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -57,15 +53,14 @@ class UserAdapter :
         fun bind(userContent: UserContent, position: Int) {
             fullName.text = userContent.user.name
             userName.text = userContent.user.username
+            userName.text = userContent.user.username
             creditLeft.text =
                 String.format("%,.2f CREDITS", userContent.user.creditInfo.creditLeft)
 
             Picasso.get().load(userContent.user.img).into(userImage)
 
-            cardView.setOnClickListener { view: View ->
-                if (mOnItemClickListener != null) {
-                    mOnItemClickListener!!.onUserClicked(view, userContent, position)
-                }
+            cardView.setOnClickListener {
+                mOnUserClickListener.onUserClicked(userContent, position)
             }
         }
 

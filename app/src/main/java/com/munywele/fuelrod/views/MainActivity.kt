@@ -19,7 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var prefs: MySharedPrefs
@@ -34,18 +34,17 @@ class MainActivity : AppCompatActivity() {
         prefs = MySharedPrefs(this@MainActivity)
         setContentView(binding.root)
 
-        mAdapter = UserAdapter()
+        mAdapter = UserAdapter(this@MainActivity)
         linearLayoutManager = LinearLayoutManager(this@MainActivity)
         binding.usersRecyclerView.layoutManager = linearLayoutManager
         binding.usersRecyclerView.setHasFixedSize(true)
         binding.usersRecyclerView.adapter = mAdapter
 
         binding.swipeContainer.setOnRefreshListener {
-//            binding.shimmerLayout.visibility = View.VISIBLE
             loadUserList()
         }
 
-        mAdapter.setOnItemClickListener(UserAdapter.OnItemClickListener { view: View?, obj: UserContent?, position: Int -> })
+        loadUserList()
 
     }
 
@@ -92,5 +91,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showToastMessage(errorString: String) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onUserClicked(userContent: UserContent, position: Int) {
+        //open to the user profile
+        val k = userContent
     }
 }
