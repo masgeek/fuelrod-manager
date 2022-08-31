@@ -1,10 +1,12 @@
 package com.munywele.fuelrod.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.munywele.fuelrod.adapter.UserAdapter
@@ -94,7 +96,8 @@ class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener {
     }
 
     override fun onUserClicked(userContent: UserContent, position: Int) {
-        //open to the user profile
-        val k = userContent
+        val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
+        startActivity(intent)
+        Animatoo.animateSwipeLeft(this@MainActivity)
     }
 }
