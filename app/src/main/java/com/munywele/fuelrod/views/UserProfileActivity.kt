@@ -2,7 +2,7 @@ package com.munywele.fuelrod.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.munywele.fuelrod.R
+import android.view.WindowManager
 import com.munywele.fuelrod.databinding.ActivityUserProfileBinding
 
 class UserProfileActivity : AppCompatActivity() {
