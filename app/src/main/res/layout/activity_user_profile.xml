@@ -19,7 +19,6 @@
             android:id="@+id/toolBarLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:collapsedTitleTextAppearance="@style/TransparentText"
             app:contentScrim="@color/profilePrimaryDark"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
@@ -37,7 +36,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/profile_round" />
+                    app:srcCompat="@drawable/ic_account_circle" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,6 +76,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBar"
                 android:layout_width="match_parent"
+                app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
@@ -84,5 +84,7 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/user_profile_content" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

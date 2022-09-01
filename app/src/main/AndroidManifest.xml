@@ -15,7 +15,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".views.UserProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/profile"
+            android:theme="@style/AppTheme.ProfileTheme" />
         <activity
             android:name=".views.LoginActivity"
             android:exported="true"
