@@ -91,7 +91,7 @@
                                     style="@style/profileDetailsTextMain"
                                     android:layout_marginStart="0dp"
                                     android:layout_marginTop="0dp"
-                                    android:text="SMS"
+                                    android:text="@string/lbl_sms"
                                     android:textSize="20sp" />
 
                                 <TextView

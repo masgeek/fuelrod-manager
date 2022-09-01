@@ -13,4 +13,8 @@
     <string name="lbl_demo_user">demo</string>
     <string name="lbl_demo_password">demo</string>
     <string name="empty_text" />
+
+    <string name="lbl_cost">COST</string>
+    <string name="lbl_credit">CREDITS</string>
+    <string name="lbl_sms">SMS</string>
 </resources>
