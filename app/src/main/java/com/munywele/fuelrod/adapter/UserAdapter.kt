@@ -1,7 +1,6 @@
 package com.munywele.fuelrod.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.munywele.fuelrod.databinding.UserItemRowBinding
@@ -51,7 +50,7 @@ class UserAdapter(private val mOnUserClickListener: OnUserClickListener) :
 
 
         fun bind(userContent: UserContent, position: Int) {
-            fullName.text = userContent.user.name
+            fullName.text = userContent.user.fullName
             userName.text = userContent.user.username
             userName.text = userContent.user.username
             creditLeft.text =

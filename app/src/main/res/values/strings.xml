@@ -12,4 +12,5 @@
     <string name="login_failed">Login failed</string>
     <string name="lbl_demo_user">demo</string>
     <string name="lbl_demo_password">demo</string>
+    <string name="empty_text" />
 </resources>

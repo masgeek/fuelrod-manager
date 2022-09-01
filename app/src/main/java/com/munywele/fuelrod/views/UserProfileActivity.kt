@@ -1,15 +1,17 @@
 package com.munywele.fuelrod.views
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
-import com.google.android.material.appbar.AppBarLayout
-import com.munywele.fuelrod.R
+import androidx.appcompat.app.AppCompatActivity
 import com.munywele.fuelrod.databinding.ActivityUserProfileBinding
+import com.munywele.fuelrod.rest.response.UserContent
+import com.munywele.fuelrod.utils.MyConstants
+
 
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserProfileBinding
 
+    private var clientName: String? = null
+    private var userContent: UserContent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,26 +19,43 @@ class UserProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val toolBar = binding.toolBar
-        val toolBarLayout = binding.toolBarLayout
         setSupportActionBar(toolBar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
 
-        var isShow = true
+
+        if (intent.extras != null) {
+            userContent = intent.getParcelableExtra(MyConstants.USER_CONTENT)
+            clientName = userContent!!.user.fullName
+        }
+
         var scrollRange = -1
-        binding.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+        var isShown = true
+        binding.appBar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
 
             if (scrollRange == -1) {
                 scrollRange = appBarLayout.totalScrollRange
             }
 
             if (scrollRange + verticalOffset == 0) {
-                toolBarLayout.title = getString(R.string.profile)
-                isShow = true
+                supportActionBar?.title = clientName
+                isShown = true
+            } else  {
+                supportActionBar?.title = " "
+                isShown = false
             }
+        }
 
-            if (isShow) {
-                toolBarLayout.title = " "
-                isShow = false
-            }
-        })
+//        with(binding) {
+//            userNameTextDisplay.text = userContent?.user?.username
+//            nameTextDisplay.text = userContent?.user?.fullName
+//        }
+//
+//        with(binding.profileContent) {
+//            nameTextDisplay.text = userContent?.user?.fullName
+//            userNameTextDisplay.text = userContent?.user?.username
+//            emailTextDisplay.text = userContent?.user?.email
+//        }
+
     }
 }

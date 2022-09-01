@@ -28,12 +28,12 @@
                 app:srcCompat="@drawable/ic_name" />
 
             <TextView
-                android:id="@+id/nameTextView"
                 style="@style/profileDetailsTextMain"
                 android:layout_toEndOf="@id/nameImageView"
                 android:text="Name" />
 
             <TextView
+                android:id="@+id/nameTextDisplay"
                 style="@style/profileDetailsMiniText"
                 android:layout_toEndOf="@id/nameImageView"
                 android:text="developer" />
@@ -45,19 +45,20 @@
         <RelativeLayout style="@style/profileDetailsLayout">
 
             <ImageView
-                android:id="@+id/mobileImageView"
+                android:id="@+id/userNameView"
                 style="@style/profileDetailsImage"
-                android:src="@drawable/ic_mobile" />
+                android:src="@drawable/ic_address" />
 
             <TextView
                 style="@style/profileDetailsTextMain"
-                android:layout_toEndOf="@id/mobileImageView"
-                android:text="Mobile" />
+                android:layout_toEndOf="@id/userNameView"
+                android:text="Username" />
 
             <TextView
+                android:id="@+id/userNameTextDisplay"
                 style="@style/profileDetailsMiniText"
-                android:layout_toEndOf="@id/mobileImageView"
-                android:text="+91-8129999999" />
+                android:layout_toEndOf="@id/userNameView"
+                android:text="@string/empty_text" />
 
         </RelativeLayout>
 
@@ -76,30 +77,10 @@
                 android:text="Email" />
 
             <TextView
+                android:id="@+id/emailTextDisplay"
                 style="@style/profileDetailsMiniText"
                 android:layout_toEndOf="@id/emailImageView"
                 android:text="developer@appsnipp.com" />
-
-        </RelativeLayout>
-
-        <View style="@style/profileDetailView" />
-
-        <RelativeLayout style="@style/profileDetailsLayout">
-
-            <ImageView
-                android:id="@+id/addressImageView"
-                style="@style/profileDetailsImage"
-                android:src="@drawable/ic_address" />
-
-            <TextView
-                style="@style/profileDetailsTextMain"
-                android:layout_toEndOf="@id/addressImageView"
-                android:text="Address" />
-
-            <TextView
-                style="@style/profileDetailsMiniText"
-                android:layout_toEndOf="@id/addressImageView"
-                android:text="Avenue 2nd Street NW SY." />
 
         </RelativeLayout>
 

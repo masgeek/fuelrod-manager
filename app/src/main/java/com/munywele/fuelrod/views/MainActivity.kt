@@ -16,6 +16,7 @@ import com.munywele.fuelrod.rest.interfaces.UserApi
 import com.munywele.fuelrod.rest.response.Paginated
 import com.munywele.fuelrod.rest.response.UserContent
 import com.munywele.fuelrod.utils.ApiErrorUtil
+import com.munywele.fuelrod.utils.MyConstants
 import com.munywele.fuelrod.utils.MySharedPrefs
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,6 +98,7 @@ class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener {
 
     override fun onUserClicked(userContent: UserContent, position: Int) {
         val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
+        intent.putExtra(MyConstants.USER_CONTENT, userContent)
         startActivity(intent)
         Animatoo.animateSwipeLeft(this@MainActivity)
     }
