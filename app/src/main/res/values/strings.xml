@@ -17,4 +17,8 @@
     <string name="lbl_cost">COST</string>
     <string name="lbl_credit">CREDITS</string>
     <string name="lbl_sms">SMS</string>
+    <string name="lbl_active">Active</string>
+    <string name="lbl_inactive">Inactive</string>
+
+    <string name="lbl_dummy_client">A.I.C MOI GIRLS SEC SCHOOL SAMBURU</string>
 </resources>

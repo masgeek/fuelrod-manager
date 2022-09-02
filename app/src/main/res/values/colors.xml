@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">@color/blue2</color>
     <!--colors for profile-->
-    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profilePrimaryLight">#FF3B30</color>
+    <color name="profilePrimaryDark">#B22722</color>
     <color name="profileAccentColor">#F7F7F7</color>
     <color name="whiteTextColor">#fff</color>
     <color name="profileBackground">#fff</color>

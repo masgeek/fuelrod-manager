@@ -10,7 +10,7 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface UserApi {
-    @GET("v1/user?size=2")
+    @GET("v1/user")
     fun users(): Call<Paginated>
 
     @GET("v1/user/{uuid}")
